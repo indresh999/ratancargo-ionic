@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/masters"></ion-back-button>
+      Add New Manager
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Manager ID</ion-card-subtitle>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Manager Name</ion-label>
+            <ion-input [(ngModel)]="postData.name"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Mobile</ion-label>
+            <ion-input [(ngModel)]="postData.mobile"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-label></ion-label>
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.city">
+            <ion-select-option value="brown">Choose Your Branch</ion-select-option>
+            <ion-select-option value="blonde">Pune</ion-select-option>
+            <ion-select-option value="black">Mumbai</ion-select-option>
+            <ion-select-option value="red">Bangluru</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"> Area</ion-label>
+            <ion-input [(ngModel)]="postData.area"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">City </ion-label>
+            <ion-input [(ngModel)]="postData.city"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-label></ion-label>
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.state">
+            <ion-select-option value="brown">Choose Your State</ion-select-option>
+            <ion-select-option value="blonde">Maharstra</ion-select-option>
+            <ion-select-option value="black">Tamilnadu</ion-select-option>
+            <ion-select-option value="red">Red</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"> Enter Pin Code</ion-label>
+            <ion-input type="number" [(ngModel)]="postData.pin"> </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Login Details</ion-card-subtitle>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Password</ion-label>
+            <ion-input [(ngModel)]="postData.pass"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Confirm Password</ion-label>
+            <ion-input [(ngModel)]="postData.cpass"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"> ID Proof</ion-label>
+            <ion-input [(ngModel)]="postData.idproof"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Photo</ion-label>
+            <ion-input [(ngModel)]="postData.photo"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col> </ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button>Save and Update</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

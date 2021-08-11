@@ -1,0 +1,269 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-segment value="all" color="tertiary" [(ngModel)]="segmentModel" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="branches">
+        <ion-icon name="camera"></ion-icon>
+        <ion-label>Branches</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="managers">
+        <ion-icon name="camera"></ion-icon>
+        <ion-label>Managers</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="vehicles">
+        <ion-icon name="camera"></ion-icon>
+        <ion-label>Vehicles</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="accounts">
+        <ion-icon name="camera"></ion-icon>
+        <ion-label>Accounts</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="drivers">
+        <ion-icon name="camera"></ion-icon>
+        <ion-label>Drivers</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div [ngSwitch]="segmentModel">
+    <div *ngSwitchCase="'branches'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="warning" style="float:right" padding (click)=addBranch() class="btn_css">Add branch
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="wrapper">
+
+        <div class="table" color="primary">
+
+          <div class="row header">
+            <div class="cell">
+              Username
+            </div>
+            <div class="cell">
+              Email
+            </div>
+            <div class="cell">
+              Password
+            </div>
+            <div class="cell">
+              Active
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="cell" data-title="Username">
+              ninjalug
+            </div>
+            <div class="cell" data-title="Email">
+              misterninja@hotmail.com
+            </div>
+            <div class="cell" data-title="Password">
+              ************
+            </div>
+            <div class="cell" data-title="Active">
+              Yes
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="cell" data-title="Username">
+              jsmith41
+            </div>
+            <div class="cell" data-title="Email">
+              joseph.smith@gmail.com
+            </div>
+            <div class="cell" data-title="Password">
+              ************
+            </div>
+            <div class="cell" data-title="Active">
+              No
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="cell" data-title="Username">
+              1337hax0r15
+            </div>
+            <div class="cell" data-title="Email">
+              hackerdude1000@aol.com
+            </div>
+            <div class="cell" data-title="Password">
+              ************
+            </div>
+            <div class="cell" data-title="Active">
+              Yes
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="cell" data-title="Username">
+              hairyharry19
+            </div>
+            <div class="cell" data-title="Email">
+              harryharry@gmail.com
+            </div>
+            <div class="cell" data-title="Password">
+              ************
+            </div>
+            <div class="cell" data-title="Active">
+              Yes
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!--Branch End-->
+
+
+    <div *ngSwitchCase="'managers'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding (click)=addManager()>Add Manager</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid color="primary">
+        <ion-row>
+          <ion-col>
+            Code
+          </ion-col>
+          <ion-col>
+            Name
+          </ion-col>
+          <ion-col>
+            Address
+          </ion-col>
+          <ion-col>
+            State
+          </ion-col>
+          <ion-col>
+            City
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!--Manager End-->
+
+    <div *ngSwitchCase="'vehicles'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding (click)=addVehicle()>Add Vehicle</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid color="primary">
+        <ion-row>
+          <ion-col>
+            Code
+          </ion-col>
+          <ion-col>
+            Name
+          </ion-col>
+          <ion-col>
+            Address
+          </ion-col>
+          <ion-col>
+            State
+          </ion-col>
+          <ion-col>
+            City
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!--Vehicle end-->
+
+    <div *ngSwitchCase="'accounts'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding (click)=addAccount()>Add Account</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid color="primary">
+        <ion-row>
+          <ion-col>
+            Code
+          </ion-col>
+          <ion-col>
+            Name
+          </ion-col>
+          <ion-col>
+            Address
+          </ion-col>
+          <ion-col>
+            State
+          </ion-col>
+          <ion-col>
+            City
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!--account end-->
+
+    <div *ngSwitchCase="'drivers'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding (click)=addDriver()>Add Driver</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid color="primary">
+        <ion-row>
+          <ion-col>
+            Code
+          </ion-col>
+          <ion-col>
+            Name
+          </ion-col>
+          <ion-col>
+            Address
+          </ion-col>
+          <ion-col>
+            State
+          </ion-col>
+          <ion-col>
+            City
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

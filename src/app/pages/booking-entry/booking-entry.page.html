@@ -1,0 +1,130 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-segment value="all" color="tertiary" [(ngModel)]="segmentModel" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="gcentry">
+        <ion-icon name="car"></ion-icon>
+        <ion-label>GC Entry</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="lcmentry">
+        <ion-icon name="car"></ion-icon>
+        <ion-label>LCM Entry</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="tlmentry">
+        <ion-icon name="car"></ion-icon>
+        <ion-label>TLM Entry</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div [ngSwitch]="segmentModel">
+    <div *ngSwitchCase="'gcentry'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding (click)=addGc()>Add New GC</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid color="primary">
+        <ion-row>
+          <ion-col>
+            Date
+          </ion-col>
+          <ion-col>
+            Name
+          </ion-col>
+          <ion-col>
+            Mobile
+          </ion-col>
+          <ion-col>
+            Address
+          </ion-col>
+          <ion-col>
+            City
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!--gc end-->
+
+    <div *ngSwitchCase="'lcmentry'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding (click)=addLcm()>Add New LCM</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid color="primary">
+        <ion-row>
+          <ion-col>
+            Date
+          </ion-col>
+          <ion-col>
+            Name
+          </ion-col>
+          <ion-col>
+            Mobile
+          </ion-col>
+          <ion-col>
+            Address
+          </ion-col>
+          <ion-col>
+            City
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!--lcm end-->
+
+    <div *ngSwitchCase="'tlmentry'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding (click)=addTlm()>Add New TLM</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid color="primary">
+        <ion-row>
+          <ion-col>
+            Date
+          </ion-col>
+          <ion-col>
+            Name
+          </ion-col>
+          <ion-col>
+            Mobile
+          </ion-col>
+          <ion-col>
+            Address
+          </ion-col>
+          <ion-col>
+            City
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!--tlm entry-->
+
+  </div>
+</ion-content>

@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/masters"></ion-back-button>
+      Add New Vehicles
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Vehicle Details</ion-card-subtitle>
+  </ion-card-header>
+<ion-grid> 
+  <ion-row>
+    <ion-col >
+      <ion-item>
+        <ion-label position="stacked">Vehicle Name</ion-label>
+        <ion-input [(ngModel)]="postData.vehiclename"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked">Reg. Number</ion-label>
+        <ion-input [(ngModel)]="postData.regno"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked"> Engine Number</ion-label>
+        <ion-input [(ngModel)]="postData.engineno"></ion-input>
+      </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-item>
+          <ion-label position="stacked">Chassis Number </ion-label>
+          <ion-input [(ngModel)]="postData.chassisno"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item >
+          <ion-label position="stacked">PUC</ion-label>
+          <ion-input type="number" [(ngModel)]="postData.puc"> </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item >
+          <ion-label position="stacked">Type</ion-label>
+          <ion-input type="number" [(ngModel)]="postData.type"> </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item >
+          <ion-label position="stacked">Load Capacity</ion-label>
+          <ion-input type="number" [(ngModel)]="postData.loadcapacity"> </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Other Details</ion-card-subtitle>
+  </ion-card-header>
+<ion-grid> 
+  <ion-row>
+    <ion-col >
+      <ion-item>
+        <ion-label position="stacked">Owner Name</ion-label>
+        <ion-input [(ngModel)]="postData.ownername"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked">Address</ion-label>
+        <ion-input [(ngModel)]="postData.address"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked">Permit Number</ion-label>
+        <ion-input [(ngModel)]="postData.permitno"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked">Finance Company</ion-label>
+        <ion-input [(ngModel)]="postData.financecompany"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked">Insurnce Company</ion-label>
+        <ion-input [(ngModel)]="postData.insurancecompany"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked">Insurnce Renew Date</ion-label>
+        <ion-input [(ngModel)]="postData.insurancerenewdate"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+</ion-card>
+<ion-grid>
+  <ion-row>
+    <ion-col> </ion-col>
+    <ion-col></ion-col>
+    <ion-col> <ion-button>Save and Update</ion-button> </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+

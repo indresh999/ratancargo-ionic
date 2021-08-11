@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/masters"></ion-back-button>
+      Add New Account
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Account Details</ion-card-subtitle>
+  </ion-card-header>
+<ion-grid> 
+  <ion-row>
+    <ion-col >
+      <ion-item>
+        <ion-label position="stacked">Account Type</ion-label>
+        <ion-input [(ngModel)]="postData.accounttype"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked">Name</ion-label>
+        <ion-input [(ngModel)]="postData.name"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked"> Mobile</ion-label>
+        <ion-input [(ngModel)]="postData.moblie"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col >
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input [(ngModel)]="postData.email"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked">Address 2 </ion-label>
+        <ion-input [(ngModel)]="postData.aad2"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked">Address 1</ion-label>
+        <ion-input [(ngModel)]="postData.add1"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-item>
+          <ion-label position="stacked">City</ion-label>
+        <ion-input [(ngModel)]="postData.city"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+          <ion-label></ion-label>
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="brown">Choose Your State</ion-select-option>
+            <ion-select-option value="blonde">Maharstra</ion-select-option>
+            <ion-select-option value="black">Tamilnadu</ion-select-option>
+            <ion-select-option value="red">Red</ion-select-option>
+          </ion-select>
+      </ion-col>
+      <ion-col>
+        <ion-item >
+          <ion-label position="stacked"> Enter Pin Code</ion-label>
+          <ion-input type="number" [(ngModel)]="postData.pin"> </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-label></ion-label>
+        <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="brown">Branch</ion-select-option>
+          <ion-select-option value="blonde">Maharstra</ion-select-option>
+          <ion-select-option value="black">Tamilnadu</ion-select-option>
+          <ion-select-option value="red">Red</ion-select-option>
+        </ion-select>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Bank Details</ion-card-subtitle>
+  </ion-card-header>
+<ion-grid> 
+  <ion-row>
+    <ion-col >
+      <ion-item>
+        <ion-label position="stacked">Bank Name</ion-label>
+        <ion-input [(ngModel)]="postData.bankname"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked">IFSC Code</ion-label>
+        <ion-input [(ngModel)]="postData.ifscno"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked"> Account Number</ion-label>
+        <ion-input [(ngModel)]="postData.accountno"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked"> GST Number</ion-label>
+        <ion-input [(ngModel)]="postData.gstno"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked"> PAN Number</ion-label>
+        <ion-input [(ngModel)]="postData.panno"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item >
+        <ion-label position="stacked"> TIN Number</ion-label>
+        <ion-input [(ngModel)]="postData.tinno"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+</ion-card>
+<ion-grid>
+  <ion-row>
+    <ion-col> </ion-col>
+    <ion-col></ion-col>
+    <ion-col> <ion-button>Save and Update</ion-button> </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+

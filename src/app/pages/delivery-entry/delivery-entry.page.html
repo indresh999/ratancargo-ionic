@@ -1,0 +1,129 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-segment value="all" color="tertiary" [(ngModel)]="segmentModel" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="turentry">
+        <ion-icon name="car"></ion-icon>
+        <ion-label>TUR Entry</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="ldmentry">
+        <ion-icon name="car"></ion-icon>
+        <ion-label>LDM Entry</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="podentry">
+        <ion-icon name="car"></ion-icon>
+        <ion-label>POD Entry</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div [ngSwitch]="segmentModel">
+    <div *ngSwitchCase="'turentry'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding (click)=addTur()>Add TUR Entry</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid color="primary">
+        <ion-row>
+          <ion-col>
+            Code
+          </ion-col>
+          <ion-col>
+            Name
+          </ion-col>
+          <ion-col>
+            Address
+          </ion-col>
+          <ion-col>
+            State
+          </ion-col>
+          <ion-col>
+            City
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!--Branch End-->
+
+
+    <div *ngSwitchCase="'ldmentry'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding (click)=addLdm()>Add LDM Entry</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid color="primary">
+        <ion-row>
+          <ion-col>
+            Code
+          </ion-col>
+          <ion-col>
+            Name
+          </ion-col>
+          <ion-col>
+            Address
+          </ion-col>
+          <ion-col>
+            State
+          </ion-col>
+          <ion-col>
+            City
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!--Manager End-->
+
+    <div *ngSwitchCase="'podentry'">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding (click)=addPod()>Add POD Entry</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid color="primary">
+        <ion-row>
+          <ion-col>
+            Code
+          </ion-col>
+          <ion-col>
+            Name
+          </ion-col>
+          <ion-col>
+            Address
+          </ion-col>
+          <ion-col>
+            State
+          </ion-col>
+          <ion-col>
+            City
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>
