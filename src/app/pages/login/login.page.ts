@@ -13,17 +13,17 @@ import { ToastService } from './../../services/toast.service';
 export class LoginPage implements OnInit {
   postData = {
     username: '',
-    password: ''
+    password: '',
+    isAdmin: false
   };
-
   constructor(
     private router: Router,
     private authService: AuthService,
     private storageService: StorageService,
     private toastService: ToastService
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   validateInputs() {
     console.log(this.postData);
@@ -41,10 +41,11 @@ export class LoginPage implements OnInit {
     if (this.validateInputs()) {
       this.authService.login(this.postData).subscribe(
         (res: any) => {
-          if (res.userData) {
+          console.log(res)
+          if (res.data) {
             // Storing the User data.
             this.storageService
-              .store(AuthConstants.AUTH, res.userData)
+              .store(AuthConstants.AUTH, res.data)
               .then(res => {
                 this.router.navigate(['home']);
               });
@@ -61,5 +62,8 @@ export class LoginPage implements OnInit {
         'Please enter email/username or password.'
       );
     }
+  }
+  isAdmin(event) {
+    this.postData.isAdmin = event.detail.checked;
   }
 }

@@ -15,7 +15,7 @@ export class AuthService {
     private httpService: HttpService,
     private storageService: StorageService,
     private router: Router
-  ) {}
+  ) { }
 
   getUserData() {
     this.storageService.get(AuthConstants.AUTH).then(res => {
@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   login(postData: any): Observable<any> {
-    return this.httpService.post('login', postData);
+    return this.httpService.post('masters/managers/login', postData);
   }
 
   signup(postData: any): Observable<any> {

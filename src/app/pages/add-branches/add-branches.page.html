@@ -16,7 +16,7 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked">Branch Code</ion-label>
-            <ion-input [(ngModel)]="postData.branchcode" class="in"></ion-input>
+            <ion-input [(ngModel)]="postData.code" class="in"></ion-input>
 
 
           </ion-item>
@@ -24,13 +24,13 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked">Enter Branch Name</ion-label>
-            <ion-input [(ngModel)]="postData.branchname"></ion-input>
+            <ion-input [(ngModel)]="postData.name"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label position="stacked"> Enter Branch Address</ion-label>
-            <ion-input [(ngModel)]="postData.branchadd"></ion-input>
+            <ion-input [(ngModel)]="postData.address"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -50,12 +50,12 @@
             <ion-select-option value="red">Red</ion-select-option>
           </ion-select>
         </ion-col>
-        <ion-col>
+        <!-- <ion-col>
           <ion-item>
             <ion-label position="stacked"> Enter Pin Code</ion-label>
             <ion-input type="number" [(ngModel)]="postData.pin"> </ion-input>
           </ion-item>
-        </ion-col>
+        </ion-col> -->
       </ion-row>
     </ion-grid>
   </ion-card>
@@ -97,7 +97,7 @@
       <ion-col> </ion-col>
       <ion-col></ion-col>
       <ion-col>
-        <ion-button>Save and Update</ion-button>
+        <ion-button (click)=saveBranch()>Save and Update</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

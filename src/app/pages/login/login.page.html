@@ -5,10 +5,10 @@
 </ion-header>
 
 <ion-content padding='true'>
-    <div class="center">
-      <img src="assets/images/logo.png" class="smallLogo"/>
-      <h1>Sign In</h1>
-    </div>
+  <div class="center">
+    <img src="assets/images/logo.png" class="smallLogo" />
+    <h1>Sign In</h1>
+  </div>
   <form>
     <ion-list>
       <ion-item>
@@ -21,9 +21,11 @@
         <ion-input autocomplete="off" type="password" name="password" [(ngModel)]="postData.password"></ion-input>
       </ion-item>
 
-      <!-- <ion-item lines='none'>
-        <a routerLink='/signup'>Create Account</a>
-      </ion-item> -->
+      <ion-item lines='none'>
+        Login as admin <ion-checkbox color="primary" name="isAdmin" [(ngModel)]="postData.isAdmin"
+          (ionChange)=isAdmin($event)>
+        </ion-checkbox>
+      </ion-item>
     </ion-list>
     <ion-button expand="block" share="round" color="success" (click)="loginAction()">Login</ion-button>
   </form>

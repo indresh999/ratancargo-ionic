@@ -32,90 +32,43 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button color="warning" style="float:right" padding (click)=addBranch() class="btn_css">Add branch
+            <ion-button color="warning" style="float:right" padding (click)="addBranch('home/add-branches')"
+              class="btn_css">Add branch
             </ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
       <div class="wrapper">
-
         <div class="table" color="primary">
-
           <div class="row header">
             <div class="cell">
-              Username
+              Code
             </div>
             <div class="cell">
-              Email
+              Name
             </div>
             <div class="cell">
-              Password
+              City
             </div>
             <div class="cell">
-              Active
+              State
             </div>
           </div>
 
-          <div class="row">
-            <div class="cell" data-title="Username">
-              ninjalug
+          <div class="row" *ngFor="let item of branch_items">
+            <div class="cell">
+              <ion-text>{{item.code}}</ion-text>
             </div>
-            <div class="cell" data-title="Email">
-              misterninja@hotmail.com
+            <div class="cell">
+              <ion-text>{{item.name}}</ion-text>
             </div>
-            <div class="cell" data-title="Password">
-              ************
+            <div class="cell">
+              <ion-text>{{item.city}}</ion-text>
             </div>
-            <div class="cell" data-title="Active">
-              Yes
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="cell" data-title="Username">
-              jsmith41
-            </div>
-            <div class="cell" data-title="Email">
-              joseph.smith@gmail.com
-            </div>
-            <div class="cell" data-title="Password">
-              ************
-            </div>
-            <div class="cell" data-title="Active">
-              No
+            <div class="cell">
+              <ion-text>{{item.state}}</ion-text>
             </div>
           </div>
-
-          <div class="row">
-            <div class="cell" data-title="Username">
-              1337hax0r15
-            </div>
-            <div class="cell" data-title="Email">
-              hackerdude1000@aol.com
-            </div>
-            <div class="cell" data-title="Password">
-              ************
-            </div>
-            <div class="cell" data-title="Active">
-              Yes
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="cell" data-title="Username">
-              hairyharry19
-            </div>
-            <div class="cell" data-title="Email">
-              harryharry@gmail.com
-            </div>
-            <div class="cell" data-title="Password">
-              ************
-            </div>
-            <div class="cell" data-title="Active">
-              Yes
-            </div>
-          </div>
-
         </div>
 
       </div>
@@ -127,35 +80,45 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button color="primary" style="float:right" padding (click)=addManager()>Add Manager</ion-button>
+            <ion-button color="primary" style="float:right" padding (click)=addManager() class="btn_css">Add Manager
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ion-grid color="primary">
-        <ion-row>
-          <ion-col>
-            Code
-          </ion-col>
-          <ion-col>
-            Name
-          </ion-col>
-          <ion-col>
-            Address
-          </ion-col>
-          <ion-col>
-            State
-          </ion-col>
-          <ion-col>
-            City
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <div class="wrapper">
+        <div class="table" color="primary">
+          <div class="row header">
+            <div class="cell">
+              Id
+            </div>
+            <div class="cell">
+              Name
+            </div>
+            <div class="cell">
+              City
+            </div>
+            <div class="cell">
+              State
+            </div>
+          </div>
+
+          <div class="row" *ngFor="let item of manager_items">
+            <div class="cell">
+              <ion-text>{{item.userid}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.name}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.mobile}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.city}}</ion-text>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
     <!--Manager End-->
 
@@ -163,35 +126,45 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button color="primary" style="float:right" padding (click)=addVehicle()>Add Vehicle</ion-button>
+            <ion-button color="primary" style="float:right" padding (click)=addVehicle() class="btn_css">Add Vehicle
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ion-grid color="primary">
-        <ion-row>
-          <ion-col>
-            Code
-          </ion-col>
-          <ion-col>
-            Name
-          </ion-col>
-          <ion-col>
-            Address
-          </ion-col>
-          <ion-col>
-            State
-          </ion-col>
-          <ion-col>
-            City
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <div class="wrapper">
+        <div class="table" color="primary">
+          <div class="row header">
+            <div class="cell">
+              Code
+            </div>
+            <div class="cell">
+              Name
+            </div>
+            <div class="cell">
+              City
+            </div>
+            <div class="cell">
+              State
+            </div>
+          </div>
+
+          <div class="row" *ngFor="let item of vehicle_items">
+            <div class="cell">
+              <ion-text>{{item.name}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.owner}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.loadcapacity}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.address}}</ion-text>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
     <!--Vehicle end-->
 
@@ -199,35 +172,44 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button color="primary" style="float:right" padding (click)=addAccount()>Add Account</ion-button>
+            <ion-button color="primary" style="float:right" padding (click)=addAccount() class="btn_css">Add Account
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ion-grid color="primary">
-        <ion-row>
-          <ion-col>
-            Code
-          </ion-col>
-          <ion-col>
-            Name
-          </ion-col>
-          <ion-col>
-            Address
-          </ion-col>
-          <ion-col>
-            State
-          </ion-col>
-          <ion-col>
-            City
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <div class="wrapper">
+        <div class="table" color="primary">
+          <div class="row header">
+            <div class="cell">
+              Name
+            </div>
+            <div class="cell">
+              Mobile
+            </div>
+            <div class="cell">
+              City
+            </div>
+            <div class="cell">
+              State
+            </div>
+          </div>
+
+          <div class="row" *ngFor="let item of account_items">
+            <div class="cell">
+              <ion-text>{{item.name}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.mobile}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.city}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.state}}</ion-text>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!--account end-->
 
@@ -235,35 +217,43 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button color="primary" style="float:right" padding (click)=addDriver()>Add Driver</ion-button>
+            <ion-button color="primary" style="float:right" padding (click)=addDriver() class="btn_css">Add Driver
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ion-grid color="primary">
-        <ion-row>
-          <ion-col>
-            Code
-          </ion-col>
-          <ion-col>
-            Name
-          </ion-col>
-          <ion-col>
-            Address
-          </ion-col>
-          <ion-col>
-            State
-          </ion-col>
-          <ion-col>
-            City
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <div class="wrapper">
+        <div class="table" color="primary">
+          <div class="row header">
+            <div class="cell">
+              Name
+            </div>
+            <div class="cell">
+              Mobile
+            </div>
+            <div class="cell">
+              City
+            </div>
+            <div class="cell">
+              Aadhar no
+            </div>
+          </div>
+          <div class="row" *ngFor="let item of driver_items">
+            <div class="cell">
+              <ion-text>{{item.name}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.mobile}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.city}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.aadharno}}</ion-text>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>
