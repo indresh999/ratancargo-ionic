@@ -20,10 +20,13 @@ export class AddBranchesPage implements OnInit {
     accountno: '',
     gstno: ''
   }
+
   data: any;
+  branch_items: any = [];
   constructor(private mSerivce: MasterService, private toastService: ToastService, private router: Router) { }
 
   ngOnInit() {
+
   }
   validateInputs() {
     let branchname = this.postData.code.trim();
@@ -59,6 +62,7 @@ export class AddBranchesPage implements OnInit {
       );
     }
   }
+
   ionViewWillEnter() {
     this.postData.code = '',
       this.postData.name = '',

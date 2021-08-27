@@ -17,8 +17,6 @@
           <ion-item>
             <ion-label position="stacked">Branch Code</ion-label>
             <ion-input [(ngModel)]="postData.code" class="in"></ion-input>
-
-
           </ion-item>
         </ion-col>
         <ion-col>
@@ -44,10 +42,9 @@
         <ion-col>
           <ion-label>State</ion-label>
           <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.state">
-            <ion-select-option value="brown">Choose Your State</ion-select-option>
-            <ion-select-option value="blonde">Maharstra</ion-select-option>
-            <ion-select-option value="black">Tamilnadu</ion-select-option>
-            <ion-select-option value="red">Red</ion-select-option>
+            <ion-select-option value="0">Choose Your State</ion-select-option>
+            <ion-select-option value="Maharstra">Maharstra</ion-select-option>
+            <ion-select-option value="Tamilnadu">Tamilnadu</ion-select-option>
           </ion-select>
         </ion-col>
         <!-- <ion-col>

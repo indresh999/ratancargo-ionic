@@ -1,9 +1,102 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>edit-branches</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end" (click)="dismiss()">Close
+      <ion-icon name="close" style="padding:8px; font-size:18px;"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Branch Details</ion-card-subtitle>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Branch Code</ion-label>
+            <ion-input [(ngModel)]="postData.code" class="in"></ion-input>
 
-<ion-content>
 
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Enter Branch Name</ion-label>
+            <ion-input [(ngModel)]="postData.name"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"> Enter Branch Address</ion-label>
+            <ion-input [(ngModel)]="postData.address"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Enter Your City </ion-label>
+            <ion-input [(ngModel)]="postData.city"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-label>State</ion-label>
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.state">
+            <ion-select-option value="0">Choose Your State</ion-select-option>
+            <ion-select-option value="Maharstra">Maharstra</ion-select-option>
+            <ion-select-option value="Tamilnadu">Tamilnadu</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <!-- <ion-col>
+          <ion-item>
+            <ion-label position="stacked"> Enter Pin Code</ion-label>
+            <ion-input type="number" [(ngModel)]="postData.pin"> </ion-input>
+          </ion-item>
+        </ion-col> -->
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Accounts Details</ion-card-subtitle>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Bank Name</ion-label>
+            <ion-input [(ngModel)]="postData.bankname"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">IFSC Code</ion-label>
+            <ion-input [(ngModel)]="postData.ifsc"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"> Account Number</ion-label>
+            <ion-input [(ngModel)]="postData.accountno"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"> GST Number</ion-label>
+            <ion-input [(ngModel)]="postData.gstno"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col> </ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button (click)=updateBranch()>Save and Update</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,29 +1,27 @@
-<ion-header translucent>
-  <ion-toolbar>
-    <ion-segment value="all" color="tertiary" [(ngModel)]="segmentModel" (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="branches">
-        <ion-icon name="camera"></ion-icon>
-        <ion-label>Branches</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="managers">
-        <ion-icon name="camera"></ion-icon>
-        <ion-label>Managers</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="vehicles">
-        <ion-icon name="camera"></ion-icon>
-        <ion-label>Vehicles</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="accounts">
-        <ion-icon name="camera"></ion-icon>
-        <ion-label>Accounts</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="drivers">
-        <ion-icon name="camera"></ion-icon>
-        <ion-label>Drivers</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar>
+  <ion-segment value="all" color="tertiary" [(ngModel)]="segmentModel" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="branches">
+      <ion-icon name="camera"></ion-icon>
+      <ion-label>Branches</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="managers">
+      <ion-icon name="camera"></ion-icon>
+      <ion-label>Managers</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="vehicles">
+      <ion-icon name="camera"></ion-icon>
+      <ion-label>Vehicles</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="accounts">
+      <ion-icon name="camera"></ion-icon>
+      <ion-label>Accounts</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="drivers">
+      <ion-icon name="camera"></ion-icon>
+      <ion-label>Drivers</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
 
 <ion-content>
 
@@ -53,6 +51,12 @@
             <div class="cell">
               State
             </div>
+            <div class="cell">
+              Edit
+            </div>
+            <div class="cell">
+              Delete
+            </div>
           </div>
 
           <div class="row" *ngFor="let item of branch_items">
@@ -67,6 +71,12 @@
             </div>
             <div class="cell">
               <ion-text>{{item.state}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=editBranchModal(item.id)>Edit</ion-button>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=deleteBranch(item.id)>Delete</ion-button>
             </div>
           </div>
         </div>
@@ -100,6 +110,12 @@
             <div class="cell">
               State
             </div>
+            <div class="cell">
+              Edit
+            </div>
+            <div class="cell">
+              Delete
+            </div>
           </div>
 
           <div class="row" *ngFor="let item of manager_items">
@@ -114,6 +130,12 @@
             </div>
             <div class="cell">
               <ion-text>{{item.city}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=editManagerModal(item.id)>Edit</ion-button>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=deleteManager(item.id)>Delete</ion-button>
             </div>
           </div>
         </div>
@@ -146,6 +168,12 @@
             <div class="cell">
               State
             </div>
+            <div class="cell">
+              Edit
+            </div>
+            <div class="cell">
+              Delete
+            </div>
           </div>
 
           <div class="row" *ngFor="let item of vehicle_items">
@@ -160,6 +188,12 @@
             </div>
             <div class="cell">
               <ion-text>{{item.address}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=editVehicleModal(item.id)>Edit</ion-button>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=deleteVehicle(item.id)>Delete</ion-button>
             </div>
           </div>
         </div>
@@ -192,6 +226,12 @@
             <div class="cell">
               State
             </div>
+            <div class="cell">
+              Edit
+            </div>
+            <div class="cell">
+              Delete
+            </div>
           </div>
 
           <div class="row" *ngFor="let item of account_items">
@@ -206,6 +246,12 @@
             </div>
             <div class="cell">
               <ion-text>{{item.state}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=editAccountModal(item.id)>Edit</ion-button>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=deleteAccount(item.id)>Delete</ion-button>
             </div>
           </div>
         </div>
@@ -237,6 +283,12 @@
             <div class="cell">
               Aadhar no
             </div>
+            <div class="cell">
+              Edit
+            </div>
+            <div class="cell">
+              Delete
+            </div>
           </div>
           <div class="row" *ngFor="let item of driver_items">
             <div class="cell">
@@ -250,6 +302,12 @@
             </div>
             <div class="cell">
               <ion-text>{{item.aadharno}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=editDriverModal(item.id)>Edit</ion-button>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=deleteDriver(item.id)>Delete</ion-button>
             </div>
           </div>
         </div>

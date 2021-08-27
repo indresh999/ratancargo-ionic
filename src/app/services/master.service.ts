@@ -25,6 +25,9 @@ export class MasterService {
     return this.httpService.post('masters/branches/deletebranch', postData);
   }
   /**Vehicle */
+  createVehicle(postData: any): Observable<any> {
+    return this.httpService.post('masters/vehicles/createvehicle', postData);
+  }
   getVehicleList(postData: any): Observable<any> {
     return this.httpService.post('masters/vehicles/getvehicles', postData);
   }
@@ -39,6 +42,10 @@ export class MasterService {
   }
 
   /**Manager */
+  createManager(postData: any): Observable<any> {
+    return this.httpService.post('masters/managers/createmanager', postData);
+  }
+
   getManagerList(postData: any): Observable<any> {
     return this.httpService.post('masters/managers/getmanagers', postData);
   }
@@ -52,6 +59,9 @@ export class MasterService {
     return this.httpService.post('masters/managers/deletemanager', postData);
   }
   /**Driver */
+  createDriver(postData: any): Observable<any> {
+    return this.httpService.post('masters/drivers/createdriver', postData);
+  }
   getDriverList(postData: any): Observable<any> {
     return this.httpService.post('masters/drivers/getdrivers', postData);
   }
@@ -65,17 +75,20 @@ export class MasterService {
     return this.httpService.post('masters/drivers/deletedriver', postData);
   }
   /**Account */
+  createAccount(postData: any): Observable<any> {
+    return this.httpService.post('masters/accounts/createaccount', postData);
+  }
   getAccountList(postData: any): Observable<any> {
     return this.httpService.post('masters/accounts/getaccounts', postData);
   }
   getAccountById(postData: any): Observable<any> {
-    return this.httpService.post('masters/accounts/getaccountsbyid', postData);
+    return this.httpService.post('masters/accounts/getaccountbyid', postData);
   }
   updateAccount(postData: any): Observable<any> {
-    return this.httpService.post('masters/accounts/updateaccounts', postData);
+    return this.httpService.post('masters/accounts/updateaccount', postData);
   }
   deleteAccount(postData: any): Observable<any> {
-    return this.httpService.post('masters/accounts/deleteaccounts', postData);
+    return this.httpService.post('masters/accounts/deleteaccount', postData);
   }
 }
 

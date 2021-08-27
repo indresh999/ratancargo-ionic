@@ -7,6 +7,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EditAccountPageModule } from './pages/edit-account/edit-account.module';
+import { EditBranchesPageModule } from './pages/edit-branches/edit-branches.module';
+import { EditDriversPageModule } from './pages/edit-drivers/edit-drivers.module';
+import { EditManagersPageModule } from './pages/edit-managers/edit-managers.module';
+import { EditVehiclesPageModule } from './pages/edit-vehicles/edit-vehicles.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +20,12 @@ import { AppComponent } from './app.component';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    EditBranchesPageModule,
+    EditDriversPageModule,
+    EditVehiclesPageModule,
+    EditManagersPageModule,
+    EditAccountPageModule
   ],
   providers: [
     StatusBar,
@@ -25,4 +35,4 @@ import { AppComponent } from './app.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
