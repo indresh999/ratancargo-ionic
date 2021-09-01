@@ -54,7 +54,18 @@ export class AddDriversPage implements OnInit {
     }
   }
   ionViewWillEnter() {
-
+    this.postData.name = '',
+      this.postData.mobile = '',
+      this.postData.city = '',
+      this.postData.address = '',
+      this.postData.state = '',
+      this.postData.poliscestation = '',
+      this.postData.bankname = '',
+      this.postData.aadharno = '',
+      this.postData.ifscno = '',
+      this.postData.accountno = '',
+      this.postData.licence = ''
+    this.postData.panno = ''
   }
 }
 

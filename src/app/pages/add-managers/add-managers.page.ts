@@ -78,6 +78,15 @@ export class AddManagersPage implements OnInit {
 
   ionViewWillEnter() {
 
+    this.postData.name = '',
+      this.postData.branch = '',
+      this.postData.mobile = '',
+      this.postData.manager = '',
+      this.postData.area = '',
+      this.postData.city = '',
+      this.postData.state = '',
+      this.postData.pincode = '',
+      this.postData.password = ''
   }
 }
 

@@ -1,9 +1,125 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>dashboard</ion-title>
+  <ion-toolbar color=warning>
+    <div class="center">
+      <img src="assets/images/logo.png" class="smallLogo" />
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+<ion-grid>
+  <ion-row>
+    <ion-col size="10">
+      <ion-card>
+        <ion-card-header>
+          <div class="center">
+          <h4>Vehicle Tracking</h4>
+          </div>
+          <div class="wrapper">
+            <div class="table" color="primary">
+              <div class="row header">
+                <div class="cell">
+                  TLM No.
+                 </div>
+                 <div class="cell">
+                  Date
+                 </div>
+                 <div class="cell">
+                  From Branch
+                 </div>
+                 <div class="cell">
+                  To Branch
+                 </div>
+                <div class="cell">
+                  Driver
+                </div>
+                <div class="cell">
+                  Number
+                </div>
+                <div class="cell">
+                  View Detail
+                </div>
+              </div>
+    
+              <div class="row" *ngFor="let item of branch_items">
+                <div class="cell">
+                  <ion-text>{{item.code}}</ion-text>
+                </div>
+                <div class="cell">
+                  <ion-text>{{item.name}}</ion-text>
+                </div>
+                <div class="cell">
+                  <ion-text>{{item.city}}</ion-text>
+                </div>
+                <div class="cell">
+                  <ion-text>{{item.state}}</ion-text>
+                </div>
+                <div class="cell">
+                  <ion-button color="primary" (click)=editBranchModal(item.id)>Edit</ion-button>
+                </div>
+                <div class="cell">
+                  <ion-button color="primary" (click)=deleteBranch(item.id)>Delete</ion-button>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+    <ion-col size="2">
+      <ion-card>
+        <ion-card-header>
+          <div class="center">
+            <h4>Quick Access</h4>
+            </div>
+          <div class="wrapper">
+            <div class="table" color="primary">
+              <div class="row header">
+                <div class="cell">
+                 Add New GC
+                </div>
+              </div>
+            </div>
+            <div class="table" color="primary">
+              <div class="row header">
+                <div class="cell">
+                 Add New LCM
+                </div>
+              </div>
+            </div>
+            <div class="table" color="primary">
+              <div class="row header">
+                <div class="cell">
+                 Add New TLM
+                </div>
+              </div>
+            </div>
+            <div class="table" color="primary">
+              <div class="row header">
+                <div class="cell">
+                 Add New TUR
+                </div>
+              </div>
+            </div>
+            <div class="table" color="primary">
+              <div class="row header">
+                <div class="cell">
+                 Add New LDM
+                </div>
+              </div>
+            </div>
+            <div class="table" color="primary">
+              <div class="row header">
+                <div class="cell">
+                 Add New POD
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>

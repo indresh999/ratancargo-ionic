@@ -6,11 +6,11 @@ import { MasterService } from 'src/app/services/master.service';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
-  selector: 'app-add-lcm',
-  templateUrl: './add-lcm.page.html',
-  styleUrls: ['./add-lcm.page.scss'],
+  selector: 'app-edit-lcm',
+  templateUrl: './edit-lcm.page.html',
+  styleUrls: ['./edit-lcm.page.scss'],
 })
-export class AddLcmPage implements OnInit {
+export class EditLcmPage implements OnInit {
   postData = {
     lcmno: '',
     date: '',
@@ -62,7 +62,6 @@ export class AddLcmPage implements OnInit {
 
   data: any;
   branch_items: any = [];
-  gc_items: any = [];
 
   consignee_data = {
     id: '',
@@ -82,12 +81,6 @@ export class AddLcmPage implements OnInit {
     address: '',
     gst: ''
   }
-  postVehicleData = {
-    id: '1',
-    name: '',
-    pid: '1',
-    limit: 30
-  }
 
   constructor(private toastService: ToastService, private router: Router, private bService: BookingentryService, private mSerivce: MasterService, private dropDowns: DropdownsService) {
   }
@@ -96,7 +89,7 @@ export class AddLcmPage implements OnInit {
     this.getBranches();
   }
 
-  addLcm() {
+  updateLcm() {
     if (this.postData.lcmno) {
       this.bService.createGc(this.postData).subscribe(
         (res: any) => {
@@ -123,21 +116,6 @@ export class AddLcmPage implements OnInit {
         (res: any) => {
           for (let i = 0; i < res.data.length; i++) {
             this.branch_items.push(res.data[i]);
-          }
-        },
-        (error: any) => {
-          this.toastService.presentToast('Network Issue.');
-        }
-      );
-    }
-  }
-  getSortedGc() {
-    if (this.postBranchData.id) {
-      this.gc_items = [];
-      this.mSerivce.getBranchList(this.postBranchData).subscribe(
-        (res: any) => {
-          for (let i = 0; i < res.data.length; i++) {
-            this.gc_items.push(res.data[i]);
           }
         },
         (error: any) => {

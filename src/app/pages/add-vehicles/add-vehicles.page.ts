@@ -55,6 +55,20 @@ export class AddVehiclesPage implements OnInit {
   }
   ionViewWillEnter() {
 
+    this.postData.vehiclename = '',
+      this.postData.regno = '',
+      this.postData.engineno = '',
+      this.postData.chassisno = '',
+      this.postData.puc = '',
+      this.postData.type = '',
+      this.postData.loadcapacity = '',
+      this.postData.ownername = '',
+      this.postData.address = '',
+      this.postData.permitno = '',
+      this.postData.financecompany = '',
+      this.postData.insurancecompany = '',
+      this.postData.insurancerenewdate = ''
+
   }
 }
 

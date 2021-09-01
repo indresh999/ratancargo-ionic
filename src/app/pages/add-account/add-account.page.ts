@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DropdownsService } from 'src/app/services/dropdowns.service';
 import { MasterService } from 'src/app/services/master.service';
 import { ToastService } from 'src/app/services/toast.service';
 
@@ -36,7 +37,9 @@ export class AddAccountPage implements OnInit {
 
   data: any;
   branch_items: any = [];
-  constructor(private mSerivce: MasterService, private toastService: ToastService, private router: Router) { }
+  consignee: any = [];
+  consignor: any = [];
+  constructor(private mSerivce: MasterService, private toastService: ToastService, private router: Router, private dropDowns: DropdownsService) { }
 
   ngOnInit() {
     this.getBranches();
@@ -83,7 +86,21 @@ export class AddAccountPage implements OnInit {
   }
 
   ionViewWillEnter() {
-
+    this.postData.accounttype = '',
+      this.postData.name = '',
+      this.postData.mobile = '',
+      this.postData.email = '',
+      this.postData.city = '',
+      this.postData.state = '',
+      this.postData.address1 = '',
+      this.postData.address2 = '',
+      this.postData.bankname = '',
+      this.postData.ifsc = '',
+      this.postData.accountno = '',
+      this.postData.panno = '',
+      this.postData.tinno = '',
+      this.postData.gst = '',
+      this.postData.cbranchname = ''
   }
 }
 

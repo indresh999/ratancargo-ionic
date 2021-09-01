@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home/delivery-entry"></ion-back-button>
-      Add New Truck Unloading Report
+      <ion-back-button defaultHref="home/booking-entry"></ion-back-button>
+      Update Local Collection Memo
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -12,7 +12,7 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="stacked">TUR Number</ion-label>
+            <ion-label position="stacked">LCM Number</ion-label>
           </ion-item>
         </ion-col>
         <ion-col>
@@ -22,22 +22,12 @@
         </ion-col>
         <ion-col>
           <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.branches">
-            <ion-select-option value="brown">From Branch</ion-select-option>
-            <ion-select-option value="blonde">a</ion-select-option>
-            <ion-select-option value="black">b</ion-select-option>
-            <ion-select-option value="red">c</ion-select-option>
+            <ion-select-option value="brown">Branch</ion-select-option>
+            <ion-select-option value="blonde">Maharstra</ion-select-option>
+            <ion-select-option value="black">Tamilnadu</ion-select-option>
+            <ion-select-option value="red">Red</ion-select-option>
           </ion-select>
         </ion-col>
-        <ion-col>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.branches">
-            <ion-select-option value="brown">To Branch</ion-select-option>
-            <ion-select-option value="blonde">a</ion-select-option>
-            <ion-select-option value="black">b</ion-select-option>
-            <ion-select-option value="red">c</ion-select-option>
-          </ion-select>
-        </ion-col>
-      </ion-row>
-      <ion-row>
         <ion-col>
           <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.drivers">
             <ion-select-option value="brown">Driver</ion-select-option>
@@ -46,6 +36,8 @@
             <ion-select-option value="red">Red</ion-select-option>
           </ion-select>
         </ion-col>
+      </ion-row>
+      <ion-row>
         <ion-col>
           <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.vehicles">
             <ion-select-option value="brown">Vehicle</ion-select-option>
@@ -56,17 +48,21 @@
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label position="stacked">Owner Name</ion-label>
-            <ion-input [(ngModel)]="postData.owner"></ion-input>
+            <ion-label position="stacked">Area</ion-label>
+            <ion-input [(ngModel)]="postData.area"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.paytype">
-            <ion-select-option value="brown">Pay Type</ion-select-option>
-            <ion-select-option value="blonde">To Pay</ion-select-option>
-            <ion-select-option value="black">Paid</ion-select-option>
-            <ion-select-option value="red">bcc</ion-select-option>
-          </ion-select>
+          <ion-item>
+            <ion-label position="stacked">Supervisor</ion-label>
+            <ion-input [(ngModel)]="postData.supervisor"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Loader</ion-label>
+            <ion-input [(ngModel)]="postData.loader"></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -130,26 +126,6 @@
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label position="stacked">Inv Value</ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="stacked">coll Type</ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Short Qty</ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Damage Qty</ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
             <ion-label position="stacked">Delete</ion-label>
           </ion-item>
         </ion-col>
@@ -158,11 +134,19 @@
   </ion-card>
 
   <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Total</ion-card-subtitle>
+    </ion-card-header>
     <ion-grid>
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="stacked">Total</ion-label>
+            <ion-label position="stacked"></ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"></ion-label>
           </ion-item>
         </ion-col>
         <ion-col>
@@ -192,17 +176,12 @@
         </ion-col>
         <ion-col>
           <ion-item>
+            <ion-label position="stacked"></ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
             <ion-label position="stacked">Amount</ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="stacked"></ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="stacked"></ion-label>
           </ion-item>
         </ion-col>
         <ion-col>

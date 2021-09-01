@@ -240,6 +240,42 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'edit-gc',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/edit-gc/edit-gc.module').then(
+                m => m.EditGcPageModule
+              )
+          }
+        ]
+      },
+      {
+        path: 'edit-lcm',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/edit-lcm/edit-lcm.module').then(
+                m => m.EditLcmPageModule
+              )
+          }
+        ]
+      },
+      {
+        path: 'edit-tlm',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/edit-tlm/edit-tlm.module').then(
+                m => m.EditTlmPageModule
+              )
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/home/dashboard',
         pathMatch: 'full'

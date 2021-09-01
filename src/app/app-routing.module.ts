@@ -46,7 +46,10 @@ const routes: Routes = [
   { path: 'all-tlm', loadChildren: './pages/pages/all-tlm/all-tlm.module#AllTlmPageModule' },
   { path: 'all-tur', loadChildren: './pages/pages/all-tur/all-tur.module#AllTurPageModule' },
   { path: 'all-ldm', loadChildren: './pages/pages/all-ldm/all-ldm.module#AllLdmPageModule' },
-  { path: 'all-pod', loadChildren: './pages/pages/all-pod/all-pod.module#AllPodPageModule' }
+  { path: 'all-pod', loadChildren: './pages/pages/all-pod/all-pod.module#AllPodPageModule' },
+  { path: 'edit-gc', loadChildren: './pages/edit-gc/edit-gc.module#EditGcPageModule' },
+  { path: 'edit-lcm', loadChildren: './pages/edit-lcm/edit-lcm.module#EditLcmPageModule' },
+  { path: 'edit-tlm', loadChildren: './pages/edit-tlm/edit-tlm.module#EditTlmPageModule' }
 
 ];
 @NgModule({

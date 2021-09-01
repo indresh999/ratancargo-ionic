@@ -16,19 +16,19 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked">Branch Code</ion-label>
-            <ion-input [(ngModel)]="postData.code" class="in"></ion-input>
+            <ion-input [(ngModel)]="postData.code" class="in" tabindex="1"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label position="stacked">Enter Branch Name</ion-label>
-            <ion-input [(ngModel)]="postData.name"></ion-input>
+            <ion-input [(ngModel)]="postData.name" tabindex="2"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label position="stacked"> Enter Branch Address</ion-label>
-            <ion-input [(ngModel)]="postData.address"></ion-input>
+            <ion-input [(ngModel)]="postData.address" tabindex="3"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -36,12 +36,12 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked">Enter Your City </ion-label>
-            <ion-input [(ngModel)]="postData.city"></ion-input>
+            <ion-input [(ngModel)]="postData.city" tabindex="4"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-label>State</ion-label>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.state">
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.state" tabindex="5">
             <ion-select-option value="0">Choose Your State</ion-select-option>
             <ion-select-option value="Maharstra">Maharstra</ion-select-option>
             <ion-select-option value="Tamilnadu">Tamilnadu</ion-select-option>
@@ -65,25 +65,25 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked">Bank Name</ion-label>
-            <ion-input [(ngModel)]="postData.bankname"></ion-input>
+            <ion-input [(ngModel)]="postData.bankname" tabindex="6"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label position="stacked">IFSC Code</ion-label>
-            <ion-input [(ngModel)]="postData.ifscno"></ion-input>
+            <ion-input [(ngModel)]="postData.ifscno" tabindex="7"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label position="stacked"> Account Number</ion-label>
-            <ion-input [(ngModel)]="postData.accountno"></ion-input>
+            <ion-input [(ngModel)]="postData.accountno" tabindex="8"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label position="stacked"> GST Number</ion-label>
-            <ion-input [(ngModel)]="postData.gstno"></ion-input>
+            <ion-input [(ngModel)]="postData.gstno" tabindex="9"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -94,7 +94,7 @@
       <ion-col> </ion-col>
       <ion-col></ion-col>
       <ion-col>
-        <ion-button (click)=saveBranch()>Save and Update</ion-button>
+        <ion-button (click)=saveBranch() tabindex="10">Save and Update</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

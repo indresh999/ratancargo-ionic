@@ -26,31 +26,57 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ion-grid color="primary">
-        <ion-row>
-          <ion-col>
-            Date
-          </ion-col>
-          <ion-col>
-            Name
-          </ion-col>
-          <ion-col>
-            Mobile
-          </ion-col>
-          <ion-col>
-            Address
-          </ion-col>
-          <ion-col>
-            City
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+
+      <div class="wrapper">
+        <div class="table" color="primary">
+          <div class="row header">
+            <div class="cell">
+              GC No.
+            </div>
+            <div class="cell">
+              Consignee
+            </div>
+            <div class="cell">
+              Consignor
+            </div>
+            <div class="cell">
+              From Branch
+            </div>
+            <div class="cell">
+              To Branch
+            </div>
+            <div class="cell">
+              Edit
+            </div>
+            <div class="cell">
+              Delete
+            </div>
+          </div>
+          <div class="row" *ngFor="let item of gc_items">
+            <div class="cell">
+              <ion-text>{{item.gcno}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.consignee}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.consignor}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.fbranch}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.tbranch}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=editGc(item.id)>Edit</ion-button>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=deleteGc(item.id)>Delete</ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!--gc end-->
 
@@ -62,31 +88,56 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ion-grid color="primary">
-        <ion-row>
-          <ion-col>
-            Date
-          </ion-col>
-          <ion-col>
-            Name
-          </ion-col>
-          <ion-col>
-            Mobile
-          </ion-col>
-          <ion-col>
-            Address
-          </ion-col>
-          <ion-col>
-            City
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <div class="wrapper">
+        <div class="table" color="primary">
+          <div class="row header">
+            <div class="cell">
+              LCM No.
+            </div>
+            <div class="cell">
+              Branch
+            </div>
+            <div class="cell">
+              Date
+            </div>
+            <div class="cell">
+              Weight
+            </div>
+            <div class="cell">
+              Amount
+            </div>
+            <div class="cell">
+              Edit
+            </div>
+            <div class="cell">
+              Delete
+            </div>
+          </div>
+          <div class="row" *ngFor="let item of lcm_items">
+            <div class="cell">
+              <ion-text>{{item.lcmno}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.branch}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.date}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.weight}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.amount}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=editLcm(item.id)>Edit</ion-button>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=deleteLcm(item.id)>Delete</ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!--lcm end-->
 
@@ -98,31 +149,56 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ion-grid color="primary">
-        <ion-row>
-          <ion-col>
-            Date
-          </ion-col>
-          <ion-col>
-            Name
-          </ion-col>
-          <ion-col>
-            Mobile
-          </ion-col>
-          <ion-col>
-            Address
-          </ion-col>
-          <ion-col>
-            City
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <div class="wrapper">
+        <div class="table" color="primary">
+          <div class="row header">
+            <div class="cell">
+              Tlm No.
+            </div>
+            <div class="cell">
+              From Branch
+            </div>
+            <div class="cell">
+              To Branch
+            </div>
+            <div class="cell">
+              Quantity
+            </div>
+            <div class="cell">
+              Amount
+            </div>
+            <div class="cell">
+              Edit
+            </div>
+            <div class="cell">
+              Delete
+            </div>
+          </div>
+          <div class="row" *ngFor="let item of tlm_items">
+            <div class="cell">
+              <ion-text>{{item.tlmno}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.tbranch}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.fbranch}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.qty}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.amount}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=editTlm(item.id)>Edit</ion-button>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=deleteTlm(item.id)>Delete</ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!--tlm entry-->
 

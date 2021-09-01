@@ -1,12 +1,259 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home/booking-entry"></ion-back-button>
-      Add New TLM
+      <ion-back-button defaultHref="home/delivery-entry"></ion-back-button>
+      Add New Truck Loading Memo
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content padding>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">TLM Number</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Date</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.branches">
+            <ion-select-option value="brown">From Branch</ion-select-option>
+            <ion-select-option value="blonde">a</ion-select-option>
+            <ion-select-option value="black">b</ion-select-option>
+            <ion-select-option value="red">c</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col>
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.branches">
+            <ion-select-option value="brown">To Branch</ion-select-option>
+            <ion-select-option value="blonde">a</ion-select-option>
+            <ion-select-option value="black">b</ion-select-option>
+            <ion-select-option value="red">c</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.drivers">
+            <ion-select-option value="brown">Driver</ion-select-option>
+            <ion-select-option value="blonde">Maharstra</ion-select-option>
+            <ion-select-option value="black">Tamilnadu</ion-select-option>
+            <ion-select-option value="red">Red</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col>
+          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.vehicles">
+            <ion-select-option value="brown">Vehicle</ion-select-option>
+            <ion-select-option value="blonde">Maharstra</ion-select-option>
+            <ion-select-option value="black">Tamilnadu</ion-select-option>
+            <ion-select-option value="red">Red</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Owner Name</ion-label>
+            <ion-input [(ngModel)]="postData.owner"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Actual Weight</ion-label>
+            <ion-input [(ngModel)]="postData.loader"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Paid Weight</ion-label>
+            <ion-input [(ngModel)]="postData.paidweight"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Total Charges</ion-label>
+            <ion-input [(ngModel)]="postData.totalcharges"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Hire</ion-label>
+            <ion-input [(ngModel)]="postData.hire"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Other Charges</ion-label>
+            <ion-input [(ngModel)]="postData.othercharges"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Advanced</ion-label>
+          <ion-input [(ngModel)]="postData.advanced"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Balance Amount</ion-label>
+          <ion-input [(ngModel)]="postData.balanceamount"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  </ion-card>
 
-<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Select GC</ion-label>
+          <ion-input [(ngModel)]="postData.selectgc"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">No.</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">GC No.</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">GC Date</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Consignor</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Consignee</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">OTY</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Weight</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Pay Type</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Amount</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Inv Value</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">coll Type</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Delete</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Total</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"></ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"></ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"></ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">OTY</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Weight</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Amount</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"></ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"></ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"></ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">Remark</ion-label>
+          <ion-input [(ngModel)]="postData.remark"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button>Save and Update</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

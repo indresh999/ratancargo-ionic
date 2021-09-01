@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookingentryService } from 'src/app/services/bookingentry.service';
 import { DropdownsService } from 'src/app/services/dropdowns.service';
 import { MasterService } from 'src/app/services/master.service';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
-  selector: 'app-add-gc',
-  templateUrl: './add-gc.page.html',
-  styleUrls: ['./add-gc.page.scss'],
+  selector: 'app-edit-gc',
+  templateUrl: './edit-gc.page.html',
+  styleUrls: ['./edit-gc.page.scss'],
 })
-export class AddGcPage implements OnInit {
+export class EditGcPage implements OnInit {
 
   public exp = 2;
   experiences: any = [];
 
   postData = {
+    id: '',
     gcno: '',
     date: '',
     fbranch: '',
@@ -59,17 +60,6 @@ export class AddGcPage implements OnInit {
     qty: '',
     mop: this.experiences
   }
-  postBranchData = {
-    id: '1',
-    name: '',
-    pid: '1',
-    limit: 30
-  }
-
-  data: any;
-  branch_items: any = [];
-  consignee_items: any = [];
-  consignor_items: any = [];
 
   consignee_data = {
     id: '',
@@ -89,46 +79,28 @@ export class AddGcPage implements OnInit {
     address: '',
     gst: ''
   }
+  postBranchData = {
+    id: '1',
+    name: '',
+    pid: '1',
+    limit: 30
+  }
+  constructor(private bookingservice: BookingentryService, private toastService: ToastService, private router: Router, private activatedroute: ActivatedRoute, private dropDowns: DropdownsService) { }
 
-  index = 1;
   ngOnInit() {
-    this.getBranches();
-    this.getAccount();
-  }
-  constructor(private toastService: ToastService, private router: Router, private bService: BookingentryService, private mSerivce: MasterService, private dropDowns: DropdownsService) {
-    this.experiences = [{ expId: 1 }]
-  }
-  addmore() {
-    console.log(this.exp);
-    this.exp = this.exp + 1;
-    this.experiences.push({ expId: this.exp })
-    this.index += 1;
-    console.log(this.experiences)
+    this.postData.id = this.activatedroute.snapshot.paramMap.get('id');
+    console.log(this.postData.id)
+    this.getGcById();
   }
 
-  remove() {
-    let ind = this.index;
-    if (ind != 0) {
-      const ele = this.experiences[ind];
-      let indexToRemove = this.experiences.indexOf(ele);
-      console.log(ele, indexToRemove);
-      if (indexToRemove == -1) return;
-      this.experiences.splice(indexToRemove, 1);
-      --this.index;
-      --this.exp;
-    }
-  }
 
-  addgc() {
-
+  updateGc() {
     if (this.postData.gcno) {
-      this.postData.mop = this.experiences;
-      this.bService.createGc(this.postData).subscribe(
+      this.bookingservice.updateGc(this.postData).subscribe(
         (res: any) => {
           console.log(res)
           if (res.data) {
-            this.toastService.presentToast('New GC created.');
-            this.router.navigate(['home/booking-entry', { tab_name: 'gcentry' }]);
+            this.toastService.presentToast('Gc updated.');
           } else {
             this.toastService.presentToast('Somthing wrong.');
           }
@@ -144,43 +116,69 @@ export class AddGcPage implements OnInit {
     }
   }
 
-  getBranches() {
-    if (this.postBranchData.id) {
-      this.branch_items = [];
-      this.mSerivce.getBranchList(this.postBranchData).subscribe(
+  getGcById() {
+    if (this.postData.id) {
+      this.bookingservice.getGcById(this.postData).subscribe(
         (res: any) => {
-          for (let i = 0; i < res.data.length; i++) {
-            this.branch_items.push(res.data[i]);
-          }
-        },
-        (error: any) => {
-          this.toastService.presentToast('Network Issue.');
-        }
-      );
-    }
-  }
-  getAccount() {
-    this.consignee_items = [];
-    this.consignor_items = [];
-    if (this.postBranchData.id) {
-      this.dropDowns.getAccounts(this.postBranchData).subscribe(
-        (res: any) => {
-          for (let i = 0; i < res.data.length; i++) {
-            if (res.data[i].accounttype == 'consignee') {
-              this.consignee_items.push(res.data[i]);
-            }
-            if (res.data[i].accounttype == 'consignor') {
-              this.consignor_items.push(res.data[i]);
-            }
-          }
-        },
-        (error: any) => {
-          this.toastService.presentToast('Network Issue.');
-        }
-      );
-    }
-  }
+          console.log(res)
+          if (res.data) {
 
+            this.postData.gcno = res.data.gcno;
+            this.postData.date = res.data.date;
+            this.postData.fbranch = res.data.fbranch;
+            this.postData.tbranch = res.data.tbranch;
+            this.postData.consignor = res.data.consignor;
+            this.postData.consignee = res.data.consignee;
+            this.postData.remark = res.data.remark;
+            this.postData.invno = res.data.invno;
+            this.postData.invvalue = res.data.invvalue;
+            this.postData.loadtype = res.data.loadtype;
+            this.postData.paytype = res.data.paytype;
+            this.postData.billingparty = res.data.billingparty;
+            this.postData.vehicle = res.data.vehicle;
+            this.postData.cod = res.data.cod;
+            this.postData.collat = res.data.collat;
+            this.postData.colltype = res.data.colltype;
+            this.postData.deliveryat = res.data.deliveryat;
+            this.postData.deliverytype = res.data.deliverytype;
+            this.postData.ebill1 = res.data.ebill1;
+            this.postData.ebill2 = res.data.ebill2;
+            this.postData.ebill3 = res.data.ebill3;
+            this.postData.ebill4 = res.data.ebill4;
+            this.postData.actualweight = res.data.actualweight;
+            this.postData.chargeweight = res.data.chargeweight;
+            this.postData.totalf = res.data.totalf;
+            this.postData.doorcoll = res.data.doorcoll;
+            this.postData.doordelay = res.data.doordelay;
+            this.postData.statecharge = res.data.statecharge;
+            this.postData.unioncharges = res.data.unioncharges;
+            this.postData.godowncharges = res.data.godowncharges;
+            this.postData.codcharges = res.data.codcharges;
+            this.postData.hamali = res.data.hamali;
+            this.postData.godownc = res.data.godownc;
+            this.postData.codec = res.data.codec;
+            this.postData.unionc = res.data.unionc;
+            this.postData.otherc = res.data.otherc;
+            this.postData.totalamount = res.data.totalamount;
+            this.postData.createddtm = res.data.createddtm;
+            this.postData.cnrid = res.data.cnrid;
+            this.postData.cneid = res.data.cneid;
+            this.postData.qty = res.data.qty;
+
+          } else {
+            this.toastService.presentToast('Somthing wrong.');
+          }
+        },
+        (error: any) => {
+          this.toastService.presentToast('Network Issue.');
+        }
+      );
+    } else {
+      this.toastService.presentToast(
+        'Please enter email/username or password.'
+      );
+    }
+  }
   getAccountById(event) {
     if (event.detail.value) {
       this.postBranchData.id = event.detail.value;
@@ -220,9 +218,4 @@ export class AddGcPage implements OnInit {
       );
     }
   }
-  ionViewWillEnter() {
-    this.getBranches();
-    this.getAccount();
-  }
 }
-

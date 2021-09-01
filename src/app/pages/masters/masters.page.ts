@@ -14,7 +14,7 @@ import { EditDriversPage } from '../edit-drivers/edit-drivers.page';
   styleUrls: ['./masters.page.scss'],
 })
 export class MastersPage implements OnInit {
-  segmentModel: string;
+  segmentModel = 'branches';
 
   postBranchData = {
     id: '1',
@@ -54,7 +54,6 @@ export class MastersPage implements OnInit {
   constructor(private router: Router, private masterService: MasterService, private toastService: ToastService, private activatedRoute: ActivatedRoute, private modalController: ModalController, private alertController: AlertController) { }
 
   ngOnInit() {
-    this.segmentModel = 'branches';
     this.getBranches();
   }
   addBranch(router) {
@@ -73,7 +72,11 @@ export class MastersPage implements OnInit {
     this.router.navigate(['home/add-drivers']);
   }
   segmentChanged(event) {
-    switch (event.detail.value) {
+    this.switchMaster(event.detail.value);
+  }
+
+  switchMaster(tab_name) {
+    switch (tab_name) {
       case 'branches':
         this.getBranches();
         break;
@@ -96,8 +99,9 @@ export class MastersPage implements OnInit {
   }
   /*Branch code*/
   getBranches() {
+    this.branch_items = [];
     if (this.postBranchData.id) {
-      this.branch_items = [];
+
       this.masterService.getBranchList(this.postBranchData).subscribe(
         (res: any) => {
           for (let i = 0; i < res.data.length; i++) {
@@ -111,8 +115,9 @@ export class MastersPage implements OnInit {
     }
   }
   getManagers() {
+    this.manager_items = [];
     if (this.postManagerData.id) {
-      this.manager_items = [];
+
       this.masterService.getManagerList(this.postManagerData).subscribe(
         (res: any) => {
           console.log(res)
@@ -143,8 +148,9 @@ export class MastersPage implements OnInit {
     }
   }
   getAccounts() {
+    this.account_items = [];
     if (this.postAccountData.id) {
-      this.account_items = [];
+
       this.masterService.getAccountList(this.postAccountData).subscribe(
         (res: any) => {
           for (let i = 0; i < res.data.length; i++) {
@@ -159,8 +165,9 @@ export class MastersPage implements OnInit {
     }
   }
   getDrivers() {
+    this.driver_items = [];
     if (this.postDriverData.id) {
-      this.driver_items = [];
+
       this.masterService.getDriverList(this.postDriverData).subscribe(
         (res: any) => {
           console.log(res)
@@ -390,6 +397,12 @@ export class MastersPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.segmentModel = this.activatedRoute.snapshot.paramMap.get('tab_name');
+
+    var tab_name = this.activatedRoute.snapshot.paramMap.get('tab_name');
+    if (tab_name == null) {
+      this.segmentModel = 'branches';
+      tab_name = 'branches';
+    }
+    this.switchMaster(tab_name)
   }
 }
