@@ -46,11 +46,10 @@
         </ion-col>
         <ion-col>
           <ion-label>RTO State</ion-label>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.state">
-            <ion-select-option value=" brown">RTO State</ion-select-option>
-            <ion-select-option value="blonde">Maharstra</ion-select-option>
-            <ion-select-option value="black">Tamilnadu</ion-select-option>
-            <ion-select-option value="red">Red</ion-select-option>
+          <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.rto">
+            <ion-select-option [value]=postData.rto>{{postData.rto}}</ion-select-option>
+            <ion-select-option value="Maharstra">Maharstra</ion-select-option>
+            <ion-select-option value="Tamilnadu">Tamilnadu</ion-select-option>
           </ion-select>
         </ion-col>
         <ion-col>
@@ -83,7 +82,7 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked">IFSC Code</ion-label>
-            <ion-input [(ngModel)]="postData.ifsccode"></ion-input>
+            <ion-input [(ngModel)]="postData.ifsc"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>

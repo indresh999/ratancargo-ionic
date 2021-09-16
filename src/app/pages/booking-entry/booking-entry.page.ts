@@ -37,7 +37,7 @@ export class BookingEntryPage implements OnInit {
   constructor(private router: Router, private bookingService: BookingentryService, private toastService: ToastService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.segmentModel = 'gcentry';
+
   }
   addGc() {
     this.router.navigate(['home/add-gc']);

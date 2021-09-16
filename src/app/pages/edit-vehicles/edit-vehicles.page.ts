@@ -74,7 +74,6 @@ export class EditVehiclesPage implements OnInit {
         (res: any) => {
           console.log(res)
           if (res.data) {
-            console.log("sd", res.data)
             this.postData.vehiclename = res.data.name;
             this.postData.regno = res.data.reg;
             this.postData.engineno = res.data.engine;
@@ -82,12 +81,13 @@ export class EditVehiclesPage implements OnInit {
             this.postData.puc = res.data.puc;
             this.postData.type = res.data.type;
             this.postData.loadcapacity = res.data.loadcapacity;
-            this.postData.ownername = res.data.ownername;
+            this.postData.ownername = res.data.owner;
             this.postData.address = res.data.address;
-            this.postData.permitno = res.data.permitno;
+            this.postData.permitno = res.data.permit;
             this.postData.financecompany = res.data.finance;
             this.postData.insurancecompany = res.data.insurance;
             this.postData.insurancerenewdate = res.data.insdate;
+            console.log(res.data)
           } else {
             this.toastService.presentToast('Somthing wrong.');
           }

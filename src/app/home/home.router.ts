@@ -276,6 +276,30 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'edit-tur',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/edit-tur/edit-tur.module').then(
+                m => m.EditTurPageModule
+              )
+          }
+        ]
+      },
+      {
+        path: 'edit-ldm',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/edit-ldm/edit-ldm.module').then(
+                m => m.EditLdmPageModule
+              )
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/home/dashboard',
         pathMatch: 'full'

@@ -15,7 +15,10 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked">Account Type</ion-label>
-            <ion-input [(ngModel)]="postData.accounttype"></ion-input>
+            <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.accounttype">
+              <ion-select-option value="consignee">Consignee</ion-select-option>
+              <ion-select-option value="consignor">Consignor</ion-select-option>
+            </ion-select>
           </ion-item>
         </ion-col>
         <ion-col>
@@ -60,8 +63,8 @@
         </ion-col>
         <ion-col>
           <ion-label>Select State</ion-label>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.state">
-            <ion-select-option value="0">Choose Your State</ion-select-option>
+          <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.state">
+            <ion-select-option [value]=postData.state>{{postData.state}}</ion-select-option>
             <ion-select-option value="Maharstra">Maharstra</ion-select-option>
             <ion-select-option value="Tamilnadu">Tamilnadu</ion-select-option>
           </ion-select>
@@ -69,8 +72,8 @@
 
         <ion-col>
           <ion-label>Select Branch</ion-label>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.branch">
-            <ion-select-option value="brown">Choose Your Branch</ion-select-option>
+          <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.cbranchname">
+            <ion-select-option [value]=postData.cbranchname>{{postData.cbranchname}}</ion-select-option>
             <ion-select-option [value]=item.name *ngFor="let item of branch_items">{{item.name}}</ion-select-option>
           </ion-select>
         </ion-col>
@@ -106,7 +109,7 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked"> GST Number</ion-label>
-            <ion-input [(ngModel)]="postData.gstno"></ion-input>
+            <ion-input [(ngModel)]="postData.gst"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>

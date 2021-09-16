@@ -20,11 +20,11 @@ export class AddAccountPage implements OnInit {
     address1: '',
     address2: '',
     bankname: '',
-    ifsc: '',
+    ifscno: '',
     accountno: '',
     panno: '',
     tinno: '',
-    gst: '',
+    gstno: '',
     cbranchname: ''
   }
 
@@ -95,11 +95,11 @@ export class AddAccountPage implements OnInit {
       this.postData.address1 = '',
       this.postData.address2 = '',
       this.postData.bankname = '',
-      this.postData.ifsc = '',
+      this.postData.ifscno = '',
       this.postData.accountno = '',
       this.postData.panno = '',
       this.postData.tinno = '',
-      this.postData.gst = '',
+      this.postData.gstno = '',
       this.postData.cbranchname = ''
   }
 }

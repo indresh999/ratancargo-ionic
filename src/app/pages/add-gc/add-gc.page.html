@@ -13,26 +13,25 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked">GC Number</ion-label>
-            <ion-input [(ngModel)]="postData.gcno"></ion-input>
+            <ion-input [(ngModel)]="postData.gcno" readonly style="background-color: #e9e9e9;"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label position="stacked">GC Date</ion-label>
-            <ion-input type="date" [(ngModel)]="postData.date" style="--padding-top:2px;"></ion-input>
+            <ion-input type="date" [(ngModel)]="postData.date" style="--padding-top:2px;">
+            </ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-label>From Branch</ion-label>
-          <ion-select value="0" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.fbranch">
-            <ion-select-option value="0">Choose Your Branch</ion-select-option>
+          <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.fbranch">
             <ion-select-option [value]=item.name *ngFor="let item of branch_items">{{item.name}}</ion-select-option>
           </ion-select>
         </ion-col>
         <ion-col>
           <ion-label>To Branch</ion-label>
-          <ion-select value="0" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.tbranch">
-            <ion-select-option value="0">Choose Your Branch</ion-select-option>
+          <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.tbranch">
             <ion-select-option [value]=item.name *ngFor="let item of branch_items">{{item.name}}</ion-select-option>
           </ion-select>
         </ion-col>
@@ -54,14 +53,14 @@
                     <ion-label position="stacked">Add Consignor</ion-label>
                     <ion-select value="0" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.consignor"
                       (ionChange)=getAccountById($event)>
-                      <ion-select-option [value]=item.id *ngFor="let item of consignor_items">{{item.name}}
+                      <ion-select-option [value]=item.name *ngFor="let item of consignor_items">{{item.name}}
                       </ion-select-option>
                     </ion-select>
                   </ion-item>
                 </ion-col>
                 <ion-col size="4">
                   <ion-item>
-                    <!-- <ion-button position="stacked">Add New</ion-button> -->
+                    <ion-button position="stacked" (click)=addNewAccount()>Add New</ion-button>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -121,7 +120,7 @@
                     <ion-label position="stacked">Add Consignee</ion-label>
                     <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.consignee"
                       (ionChange)=getAccountById($event)>
-                      <ion-select-option [value]=item.id *ngFor="let item of consignee_items">{{item.name}}
+                      <ion-select-option [value]=item.name *ngFor="let item of consignee_items">{{item.name}}
                       </ion-select-option>
                     </ion-select>
                   </ion-item>
@@ -182,50 +181,44 @@
               </ion-row>
             </ion-card>
             <ion-card>
-              <ion-row>
-                <ion-col size="2">
-                  <ion-item>
-                    <ion-label position="stacked">No.</ion-label>
-                  </ion-item>
+              <ion-row style="border-bottom:2px solid; font-weight:bold;">
+                <ion-col size="3">
+                  <ion-label position="stacked">QTY</ion-label>
                 </ion-col>
                 <ion-col size="3">
-                  <ion-item>
-                    <ion-label position="stacked">OTY</ion-label>
-                  </ion-item>
-                </ion-col>
-                <ion-col size="3">
-                  <ion-item>
-                    <ion-label position="stacked">M.O.P.</ion-label>
-                  </ion-item>
+                  <ion-label position="stacked">M.O.P.</ion-label>
                 </ion-col>
                 <ion-col size="4">
-                  <ion-item>
-                    <ion-label position="stacked">Description</ion-label>
-                  </ion-item>
+                  <ion-label position="stacked">Description</ion-label>
                 </ion-col>
               </ion-row>
 
               <div class="experience">
-                <ion-row class="Ids" *ngFor="let ex of experiences">
-                  <ion-col size="2">
-                    <ion-item>
-                      <ion-input>{{ ex.expId }}</ion-input>
-                    </ion-item>
+                <ion-row *ngFor="let item of mop_items">
+                  <ion-col size="3">
+                    <ion-label position="stacked">{{item.qty}}</ion-label>
                   </ion-col>
                   <ion-col size="3">
-                    <ion-item>
-                      <ion-input [(ngModel)]="ex.oty"></ion-input>
-                    </ion-item>
-                  </ion-col>
-                  <ion-col size="3">
-                    <ion-item>
-                      <ion-input [(ngModel)]="ex.mop"></ion-input>
-                    </ion-item>
+                    <ion-label position="stacked">{{item.mop}}</ion-label>
                   </ion-col>
                   <ion-col size="4">
-                    <ion-item>
-                      <ion-input [(ngModel)]="ex.des"></ion-input>
-                    </ion-item>
+                    <ion-label position="stacked">{{item.des}}</ion-label>
+                  </ion-col>
+                  <ion-col size="2">
+                    <ion-button style="margin-top: 9px;" class="danger" (click)=deleteMop(item.id)>
+                      <ion-icon slot="icon-only" name="close-circle"></ion-icon>
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="4">
+                    <ion-label style="font-weight:bold;">Total Qty</ion-label>
+                  </ion-col>
+                  <ion-col size="3">
+                    <ion-label style="font-weight:bold;">{{postData.qty}}</ion-label>
+                  </ion-col>
+                  <ion-col size="3">
+                    <ion-label></ion-label>
                   </ion-col>
                 </ion-row>
               </div>
@@ -233,10 +226,7 @@
           </ion-grid>
           <ion-row>
             <ion-col>
-              <ion-button (click)="addmore()">Add more</ion-button>
-            </ion-col>
-            <ion-col>
-              <ion-button (click)="remove()">Remove</ion-button>
+              <ion-button (click)="presentMopModal()">Add M.O.P</ion-button>
             </ion-col>
           </ion-row>
         </ion-col>
@@ -274,9 +264,10 @@
                   </ion-item>
                 </ion-col>
                 <ion-col size="7">
-                  <ion-item>
-                    <ion-input [(ngModel)]="postData.loadtype"></ion-input>
-                  </ion-item>
+                  <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.loadtype">
+                    <ion-select-option value="Part Load">Part Load</ion-select-option>
+                    <ion-select-option value="Full Load">Full Load</ion-select-option>
+                  </ion-select>
                 </ion-col>
               </ion-row>
               <ion-row>
@@ -286,9 +277,12 @@
                   </ion-item>
                 </ion-col>
                 <ion-col size="7">
-                  <ion-item>
-                    <ion-input [(ngModel)]="postData.paytype"></ion-input>
-                  </ion-item>
+                  <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.paytype"
+                    (ionChange)=changeBillingParty($event)>
+                    <ion-select-option value="To Pay">To Pay</ion-select-option>
+                    <ion-select-option value="Paid">Paid</ion-select-option>
+                    <ion-select-option value="TBB">TBB</ion-select-option>
+                  </ion-select>
                 </ion-col>
               </ion-row>
               <ion-row>
@@ -310,9 +304,10 @@
                   </ion-item>
                 </ion-col>
                 <ion-col size="7">
-                  <ion-item>
-                    <ion-input [(ngModel)]="postData.vehicle"></ion-input>
-                  </ion-item>
+                  <ion-select value="0" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.vehicle">
+                    <ion-select-option [value]=item.name *ngFor="let item of vehicle_items">{{item.name}}
+                    </ion-select-option>
+                  </ion-select>
                 </ion-col>
               </ion-row>
               <ion-row>
@@ -334,9 +329,10 @@
                   </ion-item>
                 </ion-col>
                 <ion-col size="7">
-                  <ion-item>
-                    <ion-input [(ngModel)]="postData.colltype"></ion-input>
-                  </ion-item>
+                  <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.colltype">
+                    <ion-select-option value="Door">Door</ion-select-option>
+                    <ion-select-option value="Godown">Godown</ion-select-option>
+                  </ion-select>
                 </ion-col>
               </ion-row>
               <ion-row>
@@ -358,9 +354,10 @@
                   </ion-item>
                 </ion-col>
                 <ion-col size="7">
-                  <ion-item>
-                    <ion-input [(ngModel)]="postData.deliverytype"></ion-input>
-                  </ion-item>
+                  <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.deliverytype">
+                    <ion-select-option value="Door">Door</ion-select-option>
+                    <ion-select-option value="Godown">Godown</ion-select-option>
+                  </ion-select>
                 </ion-col>
               </ion-row>
               <ion-row>
@@ -409,7 +406,7 @@
                 </ion-col>
                 <ion-col size="7">
                   <ion-item>
-                    <ion-input [(ngModel)]="postData.ewaybill1"></ion-input>
+                    <ion-input [(ngModel)]="postData.ebill1"></ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -421,7 +418,7 @@
                 </ion-col>
                 <ion-col size="7">
                   <ion-item>
-                    <ion-input [(ngModel)]="postData.ewaybill2"></ion-input>
+                    <ion-input [(ngModel)]="postData.ebill2"></ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -433,7 +430,7 @@
                 </ion-col>
                 <ion-col size="7">
                   <ion-item>
-                    <ion-input [(ngModel)]="postData.ewaybill3"></ion-input>
+                    <ion-input [(ngModel)]="postData.ebill3"></ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -511,7 +508,7 @@
                 </ion-col>
                 <ion-col size="7">
                   <ion-item>
-                    <ion-input [(ngModel)]="postData.godowncharges"></ion-input>
+                    <ion-input [(ngModel)]="postData.godownc"></ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -523,7 +520,7 @@
                 </ion-col>
                 <ion-col size="7">
                   <ion-item>
-                    <ion-input [(ngModel)]="postData.codcharges"></ion-input>
+                    <ion-input [(ngModel)]="postData.codec"></ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -535,7 +532,7 @@
                 </ion-col>
                 <ion-col size="7">
                   <ion-item>
-                    <ion-input [(ngModel)]="postData.unioncharges"></ion-input>
+                    <ion-input [(ngModel)]="postData.unionc"></ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -547,7 +544,19 @@
                 </ion-col>
                 <ion-col size="7">
                   <ion-item>
-                    <ion-input [(ngModel)]="postData.othercharges"></ion-input>
+                    <ion-input [(ngModel)]="postData.otherc"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="5">
+                  <ion-item>
+                    <ion-label position="stacked">Add all charges</ion-label>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="7">
+                  <ion-item>
+                    <ion-button (click)="sumCharges()">Add amount</ion-button>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -559,7 +568,8 @@
                 </ion-col>
                 <ion-col size="7">
                   <ion-item>
-                    <ion-input [(ngModel)]="postData.totalamount"></ion-input>
+                    <ion-input [(ngModel)]="postData.totalamount" readonly style="background-color: #e9e9e9;">
+                    </ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -588,7 +598,7 @@
       <ion-col> </ion-col>
       <ion-col></ion-col>
       <ion-col>
-        <ion-button (click)=addgc()>Save and Update</ion-button>
+        <ion-button (click)=addgc()>Save </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -1,14 +1,15 @@
 <ion-header translucent>
   <ion-toolbar>
     <ion-segment value="all" color="tertiary" [(ngModel)]="segmentModel" (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="turentry">
-        <ion-icon name="car"></ion-icon>
-        <ion-label>TUR Entry</ion-label>
-      </ion-segment-button>
       <ion-segment-button value="ldmentry">
         <ion-icon name="car"></ion-icon>
         <ion-label>LDM Entry</ion-label>
       </ion-segment-button>
+      <ion-segment-button value="turentry">
+        <ion-icon name="car"></ion-icon>
+        <ion-label>TUR Entry</ion-label>
+      </ion-segment-button>
+
       <ion-segment-button value="podentry">
         <ion-icon name="car"></ion-icon>
         <ion-label>POD Entry</ion-label>
@@ -18,112 +19,190 @@
 </ion-header>
 <ion-content>
   <div [ngSwitch]="segmentModel">
-    <div *ngSwitchCase="'turentry'">
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding (click)=addTur()>Add TUR Entry</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-grid color="primary">
-        <ion-row>
-          <ion-col>
-            Code
-          </ion-col>
-          <ion-col>
-            Name
-          </ion-col>
-          <ion-col>
-            Address
-          </ion-col>
-          <ion-col>
-            State
-          </ion-col>
-          <ion-col>
-            City
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-    <!--Branch End-->
-
 
     <div *ngSwitchCase="'ldmentry'">
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button color="primary" style="float:right" padding (click)=addLdm()>Add LDM Entry</ion-button>
+            <ion-button color="primary" style="float:right" padding (click)=addLdm()>Add New LDM</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ion-grid color="primary">
+      <div class="wrapper">
+        <div class="table" color="primary">
+          <div class="row header">
+            <div class="cell">
+              LDM No.
+            </div>
+            <div class="cell">
+              Branch
+            </div>
+            <div class="cell">
+              Date
+            </div>
+            <div class="cell">
+              Weight
+            </div>
+            <div class="cell">
+              Amount
+            </div>
+            <div class="cell">
+              Edit
+            </div>
+            <div class="cell">
+              Delete
+            </div>
+          </div>
+          <div class="row" *ngFor="let item of ldm_items">
+            <div class="cell">
+              <ion-text>{{item.ldmno}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.branch}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.ldmdate}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.weight}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.amount}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=editLdm(item.id)>Edit</ion-button>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=deleteLdm(item.id)>Delete</ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--LDM end-->
+
+    <div *ngSwitchCase="'turentry'">
+      <ion-grid>
         <ion-row>
           <ion-col>
-            Code
-          </ion-col>
-          <ion-col>
-            Name
-          </ion-col>
-          <ion-col>
-            Address
-          </ion-col>
-          <ion-col>
-            State
-          </ion-col>
-          <ion-col>
-            City
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
+            <ion-button color="primary" style="float:right" padding (click)=addTur()>Add New TUR</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
+
+      <div class="wrapper">
+        <div class="table" color="primary">
+          <div class="row header">
+            <div class="cell">
+              Tur No.
+            </div>
+            <div class="cell">
+              Date
+            </div>
+            <div class="cell">
+              From Branch
+            </div>
+            <div class="cell">
+              To Branch
+            </div>
+            <div class="cell">
+              Amount
+            </div>
+            <div class="cell">
+              Edit
+            </div>
+            <div class="cell">
+              Delete
+            </div>
+          </div>
+          <div class="row" *ngFor="let item of tur_items">
+            <div class="cell">
+              <ion-text>{{item.turno}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.tdate}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.fbranch}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.tbranch}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.amount}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=editTur(item.id)>Edit</ion-button>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=deleteTur(item.id)>Delete</ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!--Manager End-->
+    <!--Tur end-->
 
     <div *ngSwitchCase="'podentry'">
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button color="primary" style="float:right" padding (click)=addPod()>Add POD Entry</ion-button>
+            <ion-button color="primary" style="float:right" padding (click)=addPod()>Add New POD</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ion-grid color="primary">
-        <ion-row>
-          <ion-col>
-            Code
-          </ion-col>
-          <ion-col>
-            Name
-          </ion-col>
-          <ion-col>
-            Address
-          </ion-col>
-          <ion-col>
-            State
-          </ion-col>
-          <ion-col>
-            City
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Edit</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button color="primary" style="float:right" padding>Delete</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <div class="wrapper">
+        <div class="table" color="primary">
+          <div class="row header">
+            <div class="cell">
+              Tlm No.
+            </div>
+            <div class="cell">
+              From Branch
+            </div>
+            <div class="cell">
+              To Branch
+            </div>
+            <div class="cell">
+              Quantity
+            </div>
+            <div class="cell">
+              Amount
+            </div>
+            <div class="cell">
+              Edit
+            </div>
+            <div class="cell">
+              Delete
+            </div>
+          </div>
+          <div class="row" *ngFor="let item of tlm_items">
+            <div class="cell">
+              <ion-text>{{item.tlmno}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.tbranch}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.fbranch}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.qty}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-text>{{item.amount}}</ion-text>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=editTlm(item.id)>Edit</ion-button>
+            </div>
+            <div class="cell">
+              <ion-button color="primary" (click)=deleteTlm(item.id)>Delete</ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <!--tlm entry-->
+
   </div>
 </ion-content>

@@ -18,7 +18,25 @@ export class DropdownsService {
   getVehicles(postData: any): Observable<any> {
     return this.httpService.post('dropdowns/getvehicles', postData);
   }
+  getDrivers(postData: any): Observable<any> {
+    return this.httpService.post('dropdowns/getdrivers', postData);
+  }
   getSortedGc(postData: any): Observable<any> {
     return this.httpService.post('dropdowns/getsortedgc', postData);
+  }
+  getGcById(postData: any): Observable<any> {
+    return this.httpService.post('dropdowns/getgcbyid', postData);
+  }
+  getGcByIdTlm(postData: any): Observable<any> {
+    return this.httpService.post('dropdowns/getgcbyidtlm', postData);
+  }
+  getGcByIdLdm(postData: any): Observable<any> {
+    return this.httpService.post('dropdowns/getgcbyidldm', postData);
+  }
+  getGcByIdTur(postData: any): Observable<any> {
+    return this.httpService.post('dropdowns/getgcbyidtur', postData);
+  }
+  getNextNum(postData: any): Observable<any> {
+    return this.httpService.post('dropdowns/getnextnum', postData);
   }
 }

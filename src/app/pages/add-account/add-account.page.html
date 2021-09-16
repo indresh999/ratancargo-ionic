@@ -16,8 +16,7 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked">Account Type</ion-label>
-            <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.accounttype">
-              <ion-select-option value="0">Choose Account type</ion-select-option>
+            <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.accounttype">
               <ion-select-option value="consignee">Consignee</ion-select-option>
               <ion-select-option value="consignor">Consignor</ion-select-option>
             </ion-select>

@@ -22,7 +22,7 @@ export class EditAccountPage implements OnInit {
     address1: '',
     address2: '',
     bankname: '',
-    ifsc: '',
+    ifscno: '',
     accountno: '',
     panno: '',
     tinno: '',
@@ -85,12 +85,13 @@ export class EditAccountPage implements OnInit {
             this.postData.address1 = res.data.address1;
             this.postData.address2 = res.data.address2;
             this.postData.bankname = res.data.bankname;
-            this.postData.ifsc = res.data.ifsc;
+            this.postData.ifscno = res.data.ifsc;
             this.postData.accountno = res.data.accountno;
             this.postData.panno = res.data.panno;
             this.postData.tinno = res.data.tinno;
             this.postData.gst = res.data.gst;
             this.postData.cbranchname = res.data.cbranchname;
+            console.log(res.data)
           } else {
             this.toastService.presentToast('Somthing wrong.');
           }

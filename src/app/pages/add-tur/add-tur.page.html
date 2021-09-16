@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home/delivery-entry"></ion-back-button>
       Add New Truck Unloading Report
@@ -13,45 +13,39 @@
         <ion-col>
           <ion-item>
             <ion-label position="stacked">TUR Number</ion-label>
+            <ion-input [(ngModel)]="postData.turno" readonly style="background-color: #e9e9e9;"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
             <ion-label position="stacked">Date</ion-label>
+            <ion-input [(ngModel)]="postData.tdate" type="date"></ion-input>
           </ion-item>
         </ion-col>
         <ion-col>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.branches">
-            <ion-select-option value="brown">From Branch</ion-select-option>
-            <ion-select-option value="blonde">a</ion-select-option>
-            <ion-select-option value="black">b</ion-select-option>
-            <ion-select-option value="red">c</ion-select-option>
+          <ion-label>To Branch</ion-label>
+          <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.tbranch">
+            <ion-select-option [value]=item.name *ngFor="let item of branch_items">{{item.name}}</ion-select-option>
           </ion-select>
         </ion-col>
         <ion-col>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.branches">
-            <ion-select-option value="brown">To Branch</ion-select-option>
-            <ion-select-option value="blonde">a</ion-select-option>
-            <ion-select-option value="black">b</ion-select-option>
-            <ion-select-option value="red">c</ion-select-option>
+          <ion-label>From Branch</ion-label>
+          <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.fbranch">
+            <ion-select-option [value]=item.name *ngFor="let item of branch_items">{{item.name}}</ion-select-option>
           </ion-select>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.drivers">
-            <ion-select-option value="brown">Driver</ion-select-option>
-            <ion-select-option value="blonde">Maharstra</ion-select-option>
-            <ion-select-option value="black">Tamilnadu</ion-select-option>
-            <ion-select-option value="red">Red</ion-select-option>
+          <ion-label>Driver</ion-label>
+          <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.driver">
+            <ion-select-option [value]=item.name *ngFor="let item of driver_items">{{item.name}}</ion-select-option>
           </ion-select>
         </ion-col>
         <ion-col>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.vehicles">
-            <ion-select-option value="brown">Vehicle</ion-select-option>
-            <ion-select-option value="blonde">Maharstra</ion-select-option>
-            <ion-select-option value="black">Tamilnadu</ion-select-option>
-            <ion-select-option value="red">Red</ion-select-option>
+          <ion-label>Vehicles</ion-label>
+          <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.vehicle">
+            <ion-select-option [value]=item.name *ngFor="let item of vehicle_items">{{item.name}}</ion-select-option>
           </ion-select>
         </ion-col>
         <ion-col>
@@ -61,11 +55,11 @@
           </ion-item>
         </ion-col>
         <ion-col>
-          <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.paytype">
-            <ion-select-option value="brown">Pay Type</ion-select-option>
-            <ion-select-option value="blonde">To Pay</ion-select-option>
-            <ion-select-option value="black">Paid</ion-select-option>
-            <ion-select-option value="red">bcc</ion-select-option>
+          <ion-label position="stacked">Pay Type</ion-label>
+          <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="postData.turpaytype">
+            <ion-select-option value="To Pay">To Pay</ion-select-option>
+            <ion-select-option value="Paid">Paid</ion-select-option>
+            <ion-select-option value="TBB">TBB</ion-select-option>
           </ion-select>
         </ion-col>
       </ion-row>
@@ -74,99 +68,99 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-col>
-        <ion-item>
-          <ion-label position="stacked">Select GC</ion-label>
-          <ion-input [(ngModel)]="postData.selectgc"></ion-input>
-        </ion-item>
-      </ion-col>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label position="stacked">Select GC</ion-label>
+            <ion-select value="0" okText="Okay" cancelText="Dismiss" [(ngModel)]="postSortedGcData.gcno">
+              <ion-select-option [value]=item.id *ngFor="let item of gc_items">{{item.gcno}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)=addGcToTur() style="margin-top: 20px;">Add Gc</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-header>
     <ion-grid>
-      <ion-row>
+      <ion-row class="table_header">
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">No.</ion-label>
-          </ion-item>
+          <ion-label position="stacked">No.</ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">GC No.</ion-label>
-          </ion-item>
+          <ion-label position="stacked">GC No.</ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">GC Date</ion-label>
-          </ion-item>
+          <ion-label position="stacked">GC Date</ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Consignor</ion-label>
-          </ion-item>
+
+          <ion-label position="stacked">Consignor</ion-label>
+
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Consignee</ion-label>
-          </ion-item>
+          <ion-label position="stacked">Consignee</ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">OTY</ion-label>
-          </ion-item>
+          <ion-label position="stacked">QTY </ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Weight</ion-label>
-          </ion-item>
+          <ion-label position="stacked">Weight</ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Pay Type</ion-label>
-          </ion-item>
+          <ion-label position="stacked">Pay Type</ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Amount</ion-label>
-          </ion-item>
+          <ion-label position="stacked">Amount</ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Inv Value</ion-label>
-          </ion-item>
+          <ion-label position="stacked">Delete</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let item of gc_list_items" style="border-bottom: 2px solid;">
+        <ion-col>
+          <ion-label position="stacked">{{item.id}}</ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">coll Type</ion-label>
-          </ion-item>
+          <ion-label position="stacked">{{item.gcno}}</ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Short Qty</ion-label>
-          </ion-item>
+          <ion-label position="stacked">{{item.date}}</ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Damage Qty</ion-label>
-          </ion-item>
+          <ion-label position="stacked">{{item.consignor}}</ion-label>
         </ion-col>
         <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Delete</ion-label>
-          </ion-item>
+          <ion-label position="stacked">{{item.consignee}}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label position="stacked">{{item.qty}}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label position="stacked">{{item.actualweight}}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label position="stacked">{{item.paytype}}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label position="stacked">{{item.totalamount}}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)=deleteLdmGc(item.id)>Delete</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card>
 
   <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Total</ion-card-subtitle>
+    </ion-card-header>
     <ion-grid>
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="stacked">Total</ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
             <ion-label position="stacked"></ion-label>
           </ion-item>
         </ion-col>
@@ -182,32 +176,37 @@
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label position="stacked">OTY</ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Weight</ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="stacked">Amount</ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
             <ion-label position="stacked"></ion-label>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label position="stacked"></ion-label>
+            <ion-label position="stacked" class="fnt">QTY</ion-label>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label position="stacked"></ion-label>
+            <ion-label position="stacked" class="fnt">{{postData.qty}}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked" class="fnt">Weight</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked" class="fnt">{{postData.weight}}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked" class="fnt">Amount</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked" class="fnt">{{postData.amount}}</ion-label>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -224,7 +223,7 @@
       </ion-col>
       <ion-col></ion-col>
       <ion-col>
-        <ion-button>Save and Update</ion-button>
+        <ion-button (click)=addTur()>Save and Update</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -49,7 +49,11 @@ const routes: Routes = [
   { path: 'all-pod', loadChildren: './pages/pages/all-pod/all-pod.module#AllPodPageModule' },
   { path: 'edit-gc', loadChildren: './pages/edit-gc/edit-gc.module#EditGcPageModule' },
   { path: 'edit-lcm', loadChildren: './pages/edit-lcm/edit-lcm.module#EditLcmPageModule' },
-  { path: 'edit-tlm', loadChildren: './pages/edit-tlm/edit-tlm.module#EditTlmPageModule' }
+  { path: 'edit-tlm', loadChildren: './pages/edit-tlm/edit-tlm.module#EditTlmPageModule' },
+  { path: 'edit-tur', loadChildren: './pages/edit-tur/edit-tur.module#EditTurPageModule' },
+  { path: 'edit-ldm', loadChildren: './pages/edit-ldm/edit-ldm.module#EditLdmPageModule' },
+  { path: 'drivertrackmodal', loadChildren: './pages/drivertrackmodal/drivertrackmodal.module#DrivertrackmodalPageModule' },
+  { path: 'add-mopmodal', loadChildren: './pages/add-mopmodal/add-mopmodal.module#AddMopmodalPageModule' }
 
 ];
 @NgModule({

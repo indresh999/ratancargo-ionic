@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary">Add Mop modal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)=dismissModal()>Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row style="font-weight: bold; font-size: 18px;">
+      <ion-col size="3">
+        <ion-item>
+          <ion-label position="stacked">QTY</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="3">
+        <ion-item>
+          <ion-label position="stacked">M.O.P.</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item>
+          <ion-label position="stacked">Description</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="border-bottom: 2px solid #000000;">
+      <ion-col size="3">
+        <ion-input [(ngModel)]="postMopData.qty"></ion-input>
+      </ion-col>
+      <ion-col size="3">
+        <ion-input [(ngModel)]="postMopData.mop"></ion-input>
+      </ion-col>
+      <ion-col size="4">
+        <ion-input [(ngModel)]="postMopData.des"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)=addMop()>Add</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

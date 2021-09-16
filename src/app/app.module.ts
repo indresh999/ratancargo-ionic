@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AddMopmodalPageModule } from './pages/add-mopmodal/add-mopmodal.module';
+import { DrivertrackmodalPageModule } from './pages/drivertrackmodal/drivertrackmodal.module';
 import { EditAccountPageModule } from './pages/edit-account/edit-account.module';
 import { EditBranchesPageModule } from './pages/edit-branches/edit-branches.module';
 import { EditDriversPageModule } from './pages/edit-drivers/edit-drivers.module';
@@ -25,7 +27,9 @@ import { EditVehiclesPageModule } from './pages/edit-vehicles/edit-vehicles.modu
     EditDriversPageModule,
     EditVehiclesPageModule,
     EditManagersPageModule,
-    EditAccountPageModule
+    EditAccountPageModule,
+    DrivertrackmodalPageModule,
+    AddMopmodalPageModule
   ],
   providers: [
     StatusBar,

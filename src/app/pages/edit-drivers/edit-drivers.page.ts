@@ -17,8 +17,11 @@ export class EditDriversPage implements OnInit {
     mobile: '',
     city: '',
     state: '',
+    address: '',
+    rto: '',
     poliscestation: '',
-    aadhar: '',
+    aadharno: '',
+    bankname: '',
     ifscno: '',
     accountno: '',
     panno: '',
@@ -67,12 +70,15 @@ export class EditDriversPage implements OnInit {
             this.postData.mobile = res.data.mobile
             this.postData.city = res.data.city
             this.postData.state = res.data.state
+            this.postData.address = res.data.address
             this.postData.poliscestation = res.data.policst
-            this.postData.aadhar = res.data.aadharno
+            this.postData.aadharno = res.data.aadharno
             this.postData.ifscno = res.data.ifsc
+            this.postData.bankname = res.data.bankname
             this.postData.accountno = res.data.acno
             this.postData.panno = res.data.panno
             this.postData.licence = res.data.licno
+            this.postData.rto = res.data.rto
           } else {
             this.toastService.presentToast('Somthing wrong.');
           }
